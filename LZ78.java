@@ -4,9 +4,8 @@ import javafx.util.Pair;
 
 public class LZ78 {
 
-    private static Vector<String> dic = new Vector<>();
-
     public static Vector<Pair<Integer, Character>> compress(String s) {
+        Vector<String> dic = new Vector<>();
         Vector<Pair<Integer, Character>> tags = new Vector<>();
         dic.add("");
         for (int i = 0; i < s.length(); i++) {
@@ -27,11 +26,11 @@ public class LZ78 {
             tags.add(new Pair(prev, s.charAt(i)));
             dic.add(tmp);
         }
-        dic.clear();
         return tags;
     }
 
     public static String decompress(Vector<Pair<Integer, Character>> tags){
+        Vector<String> dic = new Vector<>();
         String ret = "";
         dic.add("");
         for (int i = 0; i < tags.size(); i++) {
@@ -46,8 +45,10 @@ public class LZ78 {
 
         Scanner in = new Scanner(System.in);
         String s = in.nextLine();
+
         Vector<Pair<Integer, Character>> tags = compress(s);
         String decodedStr = decompress(tags);
+
         System.out.println(decodedStr);
     }
 }
