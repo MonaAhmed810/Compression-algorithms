@@ -127,8 +127,7 @@ public class HuffmanWithRLE {
             else
                 cur = cur.right;
             if (cur.left == null && cur.right == null) {
-                Pair<Integer, Integer> categorizedTag;
-                categorizedTag = cur.p;
+                Pair<Integer, Integer> categorizedTag = cur.p;
                 int categorySize = categorizedTag.getValue(), nonZeroValue;
                 if (categorySize == 0) {
                     ret.add(categorizedTag);
